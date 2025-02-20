@@ -1,0 +1,209 @@
+:root {
+    --primary-color: #6366f1;
+    --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    --background-color: #0f172a;
+    --card-background: rgba(30, 41, 59, 0.7);
+    --text-color: #e2e8f0;
+    --text-muted: #94a3b8;
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --card-border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--background-color);
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+    color: var(--text-color);
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+header {
+    background: var(--primary-gradient);
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    letter-spacing: -0.5px;
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.shortcuts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.shortcut-card {
+    background: var(--card-background);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    border: var(--card-border);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.shortcut-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.shortcut-card h2 {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+}
+
+.shortcut-card p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.shortcut-card a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.shortcut-card a:hover {
+    color: #8b5cf6;
+    transform: translateX(5px);
+}
+
+/* Shortcut Detail Page Styles */
+.shortcut-detail {
+    background: var(--card-background);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+    margin: 2rem auto;
+    max-width: 800px;
+    border: var(--card-border);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.shortcut-detail h1 {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+    font-size: 2.25rem;
+}
+
+.shortcut-detail .description {
+    margin-bottom: 2rem;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.shortcut-detail h2 {
+    color: var(--text-color);
+    margin: 2rem 0 1rem;
+    font-size: 1.5rem;
+}
+
+.actions-list {
+    list-style: none;
+    display: grid;
+    gap: 1rem;
+}
+
+.action-item {
+    background: rgba(30, 41, 59, 0.5);
+    border-radius: 12px;
+    padding: 1.25rem;
+    border: var(--card-border);
+    transition: all 0.2s ease;
+}
+
+.action-item:hover {
+    background: rgba(30, 41, 59, 0.8);
+    transform: translateX(5px);
+}
+
+.action-item h3 {
+    color: #8b5cf6;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.action-item p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    margin-top: 4rem;
+}
+
+@media (max-width: 768px) {
+    .shortcuts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .shortcut-detail {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+}
+
+.button {
+    background-color: #393ceb;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+
+}
